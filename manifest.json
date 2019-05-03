@@ -1,0 +1,20 @@
+{
+  "name": "Trello Empty Column Toggle",
+  "version": "1.0",
+  "description": "Quickly hide / show empty columns on Trello.",
+  "content_scripts": [
+    {
+      "matches": ["https://trello.com/*"],
+      "js": ["trello-toggle-extension.js"]
+    }
+  ],
+  "page_action": {
+    "default_icon": {
+      "128": "smile.png"
+    }
+  },
+  "icons": {
+    "128": "smile.png"
+  },
+  "manifest_version": 2
+}
