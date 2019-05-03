@@ -1,6 +1,6 @@
 # trello-hide-column-extension
 
-Chrome extension for hiding Trello columns
+Chrome extension for hiding empty Trello columns
 
 To install:
 
