@@ -1,8 +1,9 @@
-window.onload = function() {
+window.document.body.onload = function() {
+  if (!window.location.pathname.includes("/b/")) return;
+
   const HIDE = "display:none;";
   const SHOW = "";
   let nextStyle = HIDE;
-  const container = document.querySelector(".board-header-btns.mod-right");
   const button = document.createElement("div");
 
   button.style =
@@ -23,5 +24,8 @@ window.onload = function() {
 
   button.innerHTML = "☺︎";
 
-  container.insertBefore(button, container.firstChild);
+  setTimeout(() => {
+    const container = document.querySelector(".board-header-btns.mod-right");
+    container.insertBefore(button, container.firstChild);
+  }, 3000);
 };
