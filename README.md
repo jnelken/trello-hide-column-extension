@@ -2,6 +2,8 @@
 
 Chrome extension for hiding empty Trello columns
 
+![Demo](/trello-toggle-demo.gif)
+
 Clicking the ☺︎ will automatically hide any empty columns on your board. Click
 again, and they will return.
 
@@ -16,5 +18,3 @@ To install:
 1. Enable "Developer Mode"
 1. Click "Load unpacked" and select the unzipped folder
 1. Navigate to Trello and click the ☺︎
-
-![Demo](https://cl.ly/f01f0e09de61)
