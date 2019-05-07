@@ -5,12 +5,20 @@ window.document.body.onload = function() {
 
   const HIDE = "display:none;";
   const SHOW = "";
+  const SEARCH_STYLE = 'width:120px;margin:8px;'
   let searchText = UNMATCHABLE;
   let nextStyle = HIDE;
 
+  /* SEARCH */
+  const search = document.createElement("input");
+  search.type = "text";
+  search.style = SEARCH_STYLE + HIDE;
+  search.addEventListener("keyup", e => {
+    searchText = e.target.value || UNMATCHABLE;
+  });
+
+  /* BUTTON */
   const button = document.createElement("div");
-  // style it like the other buttons using the Trello class
-  button.classList.add("board-header-btn");
 
   button.style =`
     display:inline-block;
@@ -48,28 +56,25 @@ window.document.body.onload = function() {
 
   button.innerHTML = "☺︎";
 
-  const search = document.createElement("input");
-  search.type = "text";
-  search.style = "width:120px;margin:8px;";
-  search.addEventListener("keyup", e => {
-    searchText = e.target.value || UNMATCHABLE;
-  });
+  /* CONTAINER */
+  const container = document.createElement("div");
+  // style it like the other header buttons using the Trello class
+  container.classList.add("board-header-btn");
+  container.style = "display:inline-flex;";
+  container.appendChild(search);
+  container.appendChild(button);
+  container.onmouseover = e => search.style = SEARCH_STYLE + SHOW
+  container.onmouseout = e => search.style = SEARCH_STYLE + HIDE
 
-  const component = document.createElement("div");
-  component.style = "display:inline-flex;";
-  component.classList.add("board-header-btn");
-  component.appendChild(search);
-  component.appendChild(button);
-
+  /* MOUNT */
   let attempts = 0
   const interval = setInterval(() => {
-    console.log('attempts', attempts)
-    const container = document.querySelector(".board-header-btns.mod-right");
-    if(container) {
-      container.insertBefore(component, container.firstChild);
+    const trelloParent = document.querySelector(".board-header-btns.mod-right");
+    if(trelloParent) {
+      trelloParent.insertBefore(container, trelloParent.firstChild);
       clearInterval(interval)
     }
-    if(attempts > 10) {
+    if(attempts > 5) {
       console.log('Toggle Trello Extension could not find the correct place to mount :(')
       clearInterval(interval)
     }
