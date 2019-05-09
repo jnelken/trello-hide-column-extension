@@ -40,7 +40,11 @@ window.document.body.onload = function() {
       const headerText = col.querySelector(
         ".list-header-name-assist.js-list-name-assist"
       ).innerHTML;
-      const matchesSearch = headerText.includes(searchText);
+
+      let matchesSearch = false
+      searchText.split('||').forEach(s => {
+        if(headerText.includes(s.trim())) matchesSearch = true
+      })
 
       if (isEmpty) {
         col.style = nextStyle;

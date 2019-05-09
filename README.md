@@ -9,7 +9,9 @@ again, and they will return.
 
 Hovering the ☺︎ will cauase a text input will appear. Search for the name of an
 empty column you'd like to keep open and then hit the ☺︎ button. Any columns
-matching your search will stay open.
+matching your search will stay open. You can use "||"  to match multiple strings in the search input.
+
+`Column1 || Column2`
 
 To install:
 
